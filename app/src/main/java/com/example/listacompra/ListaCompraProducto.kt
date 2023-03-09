@@ -1,12 +1,12 @@
 package com.example.listacompra
 
-import android.widget.CompoundButton.OnCheckedChangeListener
+
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Checkbox
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.*
@@ -14,6 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -37,22 +38,33 @@ fun ListaCompraProducto(
     onClose: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Row(
-        modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically
+    Card(
+        modifier = modifier
+            .padding(vertical = 10.dp)
+            .clickable(onClick = {})
+            .height(80.dp),
+        shape = RoundedCornerShape(10.dp),
+        backgroundColor = Color.LightGray,
+        elevation = 5.dp,
+
     ) {
-        Text(
-            modifier = Modifier
-                .weight(1F)
-                .padding(start = 16.dp),
-            text = nombreProducto
-        )
-        Checkbox(
-            checked = checked,
-            onCheckedChange = onCheckedChange
-        )
-        IconButton(onClick = onClose) {
-            Icon(Icons.Filled.Close, contentDescription = "Close")
+        Row(
+            modifier = modifier,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                modifier = Modifier
+                    .weight(1F)
+                    .padding(start = 16.dp),
+                text = nombreProducto
+            )
+            Checkbox(
+                checked = checked,
+                onCheckedChange = onCheckedChange
+            )
+            IconButton(onClick = onClose) {
+                Icon(Icons.Filled.Close, contentDescription = "Close")
+            }
         }
     }
 }
