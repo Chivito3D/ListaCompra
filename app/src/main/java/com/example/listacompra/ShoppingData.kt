@@ -1,0 +1,17 @@
+package com.example.listacompra
+
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+
+//data class ProductoCompra(val id: Int, val label: String, val checked: MutableState<Boolean> = mutableStateOf(false))
+
+//recuerda que iba a probar eliminando id ----- ListaCompra(val label: String)----
+
+class ShoppingData(
+    val id: Int,
+    val label: String,
+    initialChecked: Boolean = false
+) {
+    var checked by mutableStateOf(initialChecked)
+}

@@ -8,10 +8,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.listacompra.ui.theme.ListaCompraTheme
 
 class MainActivity : ComponentActivity() {
@@ -36,7 +34,7 @@ class MainActivity : ComponentActivity() {
                                 }
                             })
                         }) { padding ->
-                        ListaCompraScreen(modifier = Modifier.padding(padding))
+                        MainScreen(modifier = Modifier.padding(padding))
                     }
 
                 }

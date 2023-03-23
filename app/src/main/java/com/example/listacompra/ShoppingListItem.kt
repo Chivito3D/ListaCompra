@@ -10,15 +10,15 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.*
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
-@Composable
-fun ListaCompraProducto(nombreProducto: String, onClose: () -> Unit, modifier: Modifier = Modifier) {
+/*@Composable
+fun ShoppingListItem( //Antigua ListaCompraProducto ;D
+    nombreProducto: String,
+    onClose: () -> Unit,
+    modifier: Modifier = Modifier) {
     var checkedState by rememberSaveable { mutableStateOf(false) }
 
     ListaCompraProducto(
@@ -28,10 +28,10 @@ fun ListaCompraProducto(nombreProducto: String, onClose: () -> Unit, modifier: M
         onClose = onClose,
         modifier = modifier,
     )
-}
+}*/
 
 @Composable
-fun ListaCompraProducto(
+fun ShoppingListItem(
     nombreProducto: String,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
@@ -40,11 +40,11 @@ fun ListaCompraProducto(
 ) {
     Card(
         modifier = modifier
-            .padding(vertical = 10.dp)
+            .padding(10.dp)
             .clickable(onClick = {})
             .height(80.dp),
         shape = RoundedCornerShape(10.dp),
-        backgroundColor = Color.LightGray,
+        backgroundColor = MaterialTheme.colors.secondary,
         elevation = 5.dp,
 
     ) {
@@ -60,7 +60,7 @@ fun ListaCompraProducto(
             )
             Checkbox(
                 checked = checked,
-                onCheckedChange = onCheckedChange
+                onCheckedChange = onCheckedChange,
             )
             IconButton(onClick = onClose) {
                 Icon(Icons.Filled.Close, contentDescription = "Close")
