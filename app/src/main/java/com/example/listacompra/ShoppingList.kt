@@ -7,7 +7,8 @@ import androidx.compose.ui.Modifier
 
 
 @Composable
-fun ShoppingList(   //Antigua ListaCompraList ;(
+fun ShoppingList(
+    //Antigua ListaCompraList ;(
     list: List<ShoppingData>,
     onCheckedItem: (ShoppingData, Boolean) -> Unit,
     onCloseItem: (ShoppingData) -> Unit,
@@ -15,17 +16,18 @@ fun ShoppingList(   //Antigua ListaCompraList ;(
 ) {
     LazyColumn(
         modifier = modifier
-            //.padding(vertical = 10.dp)
+        //.padding(vertical = 10.dp)
     ) {
         items(
             items = list,
-        key = { producto -> producto.id } //debería renombrar producto como item
-        ) { producto ->
+            //key = { it.key }
+            key = { item -> item.id } //renombrado producto como item (sin cambiar nombreProducto)
+        ) { item ->
             ShoppingListItem(
-                nombreProducto = producto.label,
-                checked = producto.checked,
-                onCheckedChange = { checked -> onCheckedItem(producto, checked) },
-                onClose = { onCloseItem(producto) }
+                nombreProducto = item.label,
+                checked = item.checked,
+                onCheckedChange = { checked -> onCheckedItem(item, checked) },
+                onClose = { onCloseItem(item) }
             )
         }
     }

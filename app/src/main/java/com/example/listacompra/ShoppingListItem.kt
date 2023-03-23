@@ -21,7 +21,7 @@ fun ShoppingListItem( //Antigua ListaCompraProducto ;D
     modifier: Modifier = Modifier) {
     var checkedState by rememberSaveable { mutableStateOf(false) }
 
-    ListaCompraProducto(
+    ShoppingListItem(
         nombreProducto = nombreProducto,
         checked = checkedState,
         onCheckedChange = { newValue -> checkedState = newValue},

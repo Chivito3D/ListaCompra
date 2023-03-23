@@ -7,19 +7,22 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 
 
 @Composable
-fun MainScreen(  //Antigua ListaCompraScreen
+fun MainScreen(
+    //Antigua ListaCompraScreen
     modifier: Modifier = Modifier,
     shoppingListViewModel: ShoppingListViewModel = viewModel(),
 ) {
     Column(modifier = modifier) {
-        /*AgregarProductos(list = listaCompraViewModel.productos,
-            onClickAction = { productos -> listaCompraViewModel.add(productos) })*/
+
         ShoppingList(
             list = shoppingListViewModel.list,
             onCheckedItem = { item, checked ->
-                shoppingListViewModel.changeProductoChecked(item, checked)
-                                },
-            onCloseItem = { item -> shoppingListViewModel.remove(item) })
+                shoppingListViewModel.changeItemChecked(item, checked)
+            },
+            onCloseItem = { item ->
+                shoppingListViewModel.remove(item)
+            }
+        )
     }
 }
 //val productos = mutableStateListOf<ProductoCompra>()

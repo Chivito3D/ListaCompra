@@ -16,10 +16,10 @@ class ShoppingListViewModel : ViewModel() {
         _list.add(item)
     }
 
-    fun changeProductoChecked(item: ShoppingData, checked: Boolean) =
-        list.find { it.id == item.id }?.let { productos ->
-            productos.checked = checked
-        }
+    fun changeItemChecked(item: ShoppingData, checked: Boolean) =
+        list.find { it.id == item.id }?.let { elemento ->
+            elemento.checked = checked
+        } //productos renombrados a elemento
 }
 
 //private fun getShoppingList() = List(30) { i -> ProductoCompra("Producto # $i")} //MierdaNombres
